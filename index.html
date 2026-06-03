@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora Básica</title>
+    <style>
+        body { font-family: sans-serif; margin: 20px; }
+        input { display: block; margin-bottom: 10px; padding: 5px; }
+        button { margin-right: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+    <h1>Calculadora Web</h1>
+
+    <!-- O formulário envia os dados para a rota /calcular via POST -->
+    <form action="/calcular" method="POST">
+       
+        <label>Digite o primeiro número:</label>
+        <input type="number" name="valor1" required>
+
+        <label>Digite o segundo número:</label>
+        <input type="number" name="valor2" required>
+
+        <hr>
+
+        <!-- Os botões definem qual operação foi escolhida pelo atributo 'value' -->
+        <button type="submit" name="operacao" value="adicao">Adição (+)</button>
+        <button type="submit" name="operacao" value="subtracao">Subtração (-)</button>
+        <button type="submit" name="operacao" value="multiplicacao">Multiplicação (*)</button>
+        <button type="submit" name="operacao" value="divisao">Divisão (/)</button>
+
+    </form>
+
+    <!-- Aqui mostramos o resultado se ele existir -->
+    {% if resultado %}
+        <h2 style="color: green;">Resultado: {{ resultado }}</h2>
+    {% endif %}
+
+</body>
+</html>
